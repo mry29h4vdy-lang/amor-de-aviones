@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Para ti, Leida Camila ✈️</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;overflow:hidden;font-family:'Quicksand',system-ui,sans-serif;background:#2b2f6b}
+#sky{position:fixed;inset:0;background:linear-gradient(180deg,#232a6e 0%,#4b5fc0 22%,#a78bd6 48%,#f2a2c0 70%,#ffc59a 88%,#ffe3b3 100%);overflow:hidden}
+#sun{position:absolute;left:50%;bottom:-18vh;width:70vmax;height:70vmax;transform:translateX(-50%);background:radial-gradient(circle,#fff6d8 0%,#ffd9a0 18%,rgba(255,170,150,.55) 38%,transparent 66%);animation:glow 8s ease-in-out infinite alternate}
+@keyframes glow{to{transform:translateX(-50%) scale(1.08);opacity:.85}}
+.star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;animation:tw 3s ease-in-out infinite}
+@keyframes tw{50%{opacity:.15;transform:scale(.6)}}
+.cloud{position:absolute;left:0;height:60px;width:200px;border-radius:60px;background:rgba(255,255,255,.55);filter:blur(2px);animation:drift linear infinite}
+.cloud::before,.cloud::after{content:"";position:absolute;background:inherit;border-radius:50%}
+.cloud::before{width:90px;height:90px;left:30px;top:-40px}
+.cloud::after{width:70px;height:70px;left:100px;top:-28px}
+@keyframes drift{from{transform:translateX(-300px)}to{transform:translateX(calc(100vw + 300px))}}
+.fly{position:absolute;left:0;display:flex;align-items:center;animation:drift linear infinite;filter:drop-shadow(0 4px 8px rgba(80,40,100,.25))}
+.fly svg{width:64px;height:24px;display:block}
+.fly::before{content:"";width:140px;height:3px;margin-right:-4px;border-radius:3px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.8))}
+.banner{margin-right:2px;padding:6px 16px 6px 22px;background:#fff;color:#c2447a;font:700 20px 'Dancing Script',cursive;white-space:nowrap;border-radius:4px 14px 14px 4px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,10px 50%)}
+#intro{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;text-align:center;padding:24px;transition:opacity .8s,visibility .8s}
+#intro h1{font:700 clamp(40px,9vw,76px)/1.05 'Dancing Script',cursive;color:#fff;text-shadow:0 4px 24px rgba(60,30,110,.5)}
+#intro p{color:#fff;opacity:.9;font-size:17px}
+button{font:600 17px 'Quicksand',sans-serif;color:#b53a72;background:#fff;border:0;border-radius:999px;padding:14px 30px;cursor:pointer;box-shadow:0 8px 28px rgba(80,30,100,.35);animation:pulse 2.2s ease-in-out infinite}
+button:focus-visible{outline:3px solid #ffe08a;outline-offset:3px}
+@keyframes pulse{50%{transform:scale(1.06)}}
+body.open #intro{opacity:0;visibility:hidden}
+#letter{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;visibility:hidden;transition:opacity 1s .5s,visibility 0s 1.5s}
+body.open #letter{opacity:1;visibility:visible;transition:opacity 1s .5s}
+.paper{width:min(560px,100%);max-height:86vh;overflow:auto;padding:34px 30px;background:rgba(255,250,246,.93);border-radius:18px;box-shadow:0 20px 60px rgba(60,20,90,.4);color:#4a3350;transform:translateY(30px) scale(.96);transition:transform 1.2s .5s cubic-bezier(.2,.8,.2,1)}
+body.open .paper{transform:none}
+.paper h2{font:700 38px 'Dancing Script',cursive;color:#c2447a;margin-bottom:14px}
+.paper p{font:500 17px/1.75 'Quicksand',sans-serif;margin-bottom:14px;opacity:0}
+body.open .paper p{animation:ap 1s forwards}
+@keyframes ap{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.sign{font:700 30px 'Dancing Script',cursive!important;color:#c2447a;text-align:right}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.paper p{opacity:1!important}}
+</style>
+</head>
+<body>
+
+<!-- Dibujo del avión (se reutiliza) -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="pl" viewBox="0 0 64 24">
+    <path d="M2 12 14 9h26l12-6h4l-8 6 12 1c3 .5 3 3.5 0 4l-12 1 8 6h-4l-12-6H14L2 12Z" fill="#fff"/>
+  </symbol>
+</svg>
+
+<div id="sky">
+  <div id="sun"></div>
+  <div id="stars"></div>
+
+  <!-- Nubes -->
+  <div class="cloud" style="top:18%;animation-duration:70s;animation-delay:-20s"></div>
+  <div class="cloud" style="top:42%;animation-duration:95s;animation-delay:-60s;opacity:.7"></div>
+  <div class="cloud" style="top:64%;animation-duration:80s;animation-delay:-35s;opacity:.8"></div>
+  <div class="cloud" style="top:80%;animation-duration:110s;animation-delay:-10s;opacity:.6"></div>
+
+  <!-- Aviones (el primero lleva la pancarta) -->
+  <div class="fly" style="top:14%;animation-duration:26s;animation-delay:-4s"><span class="banner">Te amo, Leida Camila</span><svg><use href="#pl"/></svg></div>
+  <div class="fly" style="top:34%;animation-duration:18s;animation-delay:-12s;scale:.7"><svg><use href="#pl"/></svg></div>
+  <div class="fly" style="top:56%;animation-duration:32s;animation-delay:-20s;scale:.5"><svg><use href="#pl"/></svg></div>
+  <div class="fly" style="top:72%;animation-duration:22s;animation-delay:-2s;scale:.85"><svg><use href="#pl"/></svg></div>
+
+  <!-- Pantalla inicial -->
+  <div id="intro">
+    <h1>Una carta<br>para ti</h1>
+    <p>Hice volar algo especial hasta tu cielo</p>
+    <button id="go">Abrir carta ✉️</button>
+  </div>
+
+  <!-- La carta (cambia el texto por el tuyo) -->
+  <div id="letter">
+    <div class="paper" id="paper">
+      <h2>Mi Leida Camila,</h2>
+      <p>Hoy quise escribirte desde las nubes, porque así me haces sentir: como si flotara en un cielo bonito donde todo está bien.</p>
+      <p>Llevamos 10 meses juntos y cada día contigo ha sido mi parte favorita del viaje. Gracias por tu sonrisa, tu paciencia y por hacerme querer ser mejor persona.</p>
+      <p>Si pudiera, haría que todos los aviones del mundo cruzaran el cielo para decirte lo mucho que te quiero. Como no puedo, te mando estos, para que sepas que mi corazón siempre vuela hacia ti.</p>
+      <p>Gracias por ser mi destino favorito. Te amo muchísimo. 💗</p>
+      <p class="sign">Tu Victor Joaquin ✈️</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// Estrellas
+var st = document.getElementById('stars');
+for (var i = 0; i < 45; i++) {
+  var s = document.createElement('i');
+  s.className = 'star';
+  s.style.left = Math.random() * 100 + '%';
+  s.style.top = Math.random() * 38 + '%';
+  s.style.animationDelay = (Math.random() * 3) + 's';
+  st.appendChild(s);
+}
+// Abrir la carta
+document.getElementById('go').onclick = function () {
+  document.body.classList.add('open');
+  document.querySelectorAll('.paper p').forEach(function (p, i) {
+    p.style.animationDelay = (1.4 + i * 1.1) + 's';
+  });
+};
+</script>
+</body>
+</html>
