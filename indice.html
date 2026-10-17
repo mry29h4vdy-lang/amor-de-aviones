@@ -3,80 +3,111 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#232a6e">
 <title>Para ti, Leida Camila ✈️</title>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
 <style>
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box;margin:0}
 html,body{height:100%;overflow:hidden;font-family:'Quicksand',system-ui,sans-serif;background:#2b2f6b}
-#sky{position:fixed;inset:0;background:linear-gradient(180deg,#232a6e 0%,#4b5fc0 22%,#a78bd6 48%,#f2a2c0 70%,#ffc59a 88%,#ffe3b3 100%);overflow:hidden}
-#sun{position:absolute;left:50%;bottom:-18vh;width:70vmax;height:70vmax;transform:translateX(-50%);background:radial-gradient(circle,#fff6d8 0%,#ffd9a0 18%,rgba(255,170,150,.55) 38%,transparent 66%);animation:glow 8s ease-in-out infinite alternate}
-@keyframes glow{to{transform:translateX(-50%) scale(1.08);opacity:.85}}
-.star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;animation:tw 3s ease-in-out infinite}
-@keyframes tw{50%{opacity:.15;transform:scale(.6)}}
-.cloud{position:absolute;left:0;height:60px;width:200px;border-radius:60px;background:rgba(255,255,255,.55);filter:blur(2px);animation:drift linear infinite}
+#sky{position:fixed;inset:0;overflow:hidden;background:linear-gradient(180deg,#1d2362 0%,#3d4fb3 20%,#9a82d4 44%,#f09ac0 68%,#ffbe98 86%,#ffe6b8 100%)}
+#sky>*{position:absolute}
+#sun{left:50%;bottom:-20vh;width:80vmax;height:80vmax;transform:translateX(-50%);background:radial-gradient(circle,#fffbe6 0,#ffe3a8 14%,rgba(255,170,150,.55) 36%,transparent 66%);animation:glow 8s ease-in-out infinite alternate}
+#rays{left:50%;bottom:-60vmax;width:120vmax;height:120vmax;margin-left:-60vmax;background:repeating-conic-gradient(rgba(255,244,210,.22) 0 5deg,transparent 5deg 14deg);-webkit-mask:radial-gradient(circle,#000,transparent 62%);mask:radial-gradient(circle,#000,transparent 62%);animation:spin 160s linear infinite}
+@keyframes glow{to{transform:translateX(-50%) scale(1.07);opacity:.88}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;box-shadow:0 0 6px 1px rgba(255,255,255,.8);animation:tw 3s ease-in-out infinite}
+@keyframes tw{50%{opacity:.2;transform:scale(.6)}}
+.shoot{top:9%;left:78%;width:120px;height:2px;border-radius:2px;background:linear-gradient(90deg,#fff,transparent);opacity:0;transform:rotate(-28deg);animation:shoot 9s ease-in infinite 2s}
+@keyframes shoot{0%{opacity:0;transform:translate(0,0) rotate(-28deg)}4%{opacity:1}14%{opacity:0;transform:translate(-55vw,26vh) rotate(-28deg)}100%{opacity:0}}
+.cloud{left:0;height:56px;width:200px;border-radius:60px;background:linear-gradient(#fff,#ffe9f1);filter:blur(1.5px);animation:drift linear infinite}
 .cloud::before,.cloud::after{content:"";position:absolute;background:inherit;border-radius:50%}
-.cloud::before{width:90px;height:90px;left:30px;top:-40px}
-.cloud::after{width:70px;height:70px;left:100px;top:-28px}
-@keyframes drift{from{transform:translateX(-300px)}to{transform:translateX(calc(100vw + 300px))}}
-.fly{position:absolute;left:0;display:flex;align-items:center;animation:drift linear infinite;filter:drop-shadow(0 4px 8px rgba(80,40,100,.25))}
-.fly svg{width:64px;height:24px;display:block}
-.fly::before{content:"";width:140px;height:3px;margin-right:-4px;border-radius:3px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.8))}
-.banner{margin-right:2px;padding:6px 16px 6px 22px;background:#fff;color:#c2447a;font:700 20px 'Dancing Script',cursive;white-space:nowrap;border-radius:4px 14px 14px 4px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,10px 50%)}
-#intro{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;text-align:center;padding:24px;transition:opacity .8s,visibility .8s}
-#intro h1{font:700 clamp(40px,9vw,76px)/1.05 'Dancing Script',cursive;color:#fff;text-shadow:0 4px 24px rgba(60,30,110,.5)}
-#intro p{color:#fff;opacity:.9;font-size:17px}
-button{font:600 17px 'Quicksand',sans-serif;color:#b53a72;background:#fff;border:0;border-radius:999px;padding:14px 30px;cursor:pointer;box-shadow:0 8px 28px rgba(80,30,100,.35);animation:pulse 2.2s ease-in-out infinite}
-button:focus-visible{outline:3px solid #ffe08a;outline-offset:3px}
-@keyframes pulse{50%{transform:scale(1.06)}}
+.cloud::before{width:90px;height:90px;left:26px;top:-42px}
+.cloud::after{width:72px;height:72px;left:104px;top:-28px}
+@keyframes drift{from{transform:translateX(-110%)}to{transform:translateX(calc(100vw + 20px))}}
+#bank{left:-6%;right:-6%;bottom:-7vh;height:28vh;background:radial-gradient(ellipse 18% 55% at 8% 90%,#fff 60%,transparent 62%),radial-gradient(ellipse 22% 70% at 28% 100%,#fff0f5 60%,transparent 62%),radial-gradient(ellipse 20% 60% at 50% 100%,#fff 60%,transparent 62%),radial-gradient(ellipse 24% 72% at 72% 100%,#ffeaf1 60%,transparent 62%),radial-gradient(ellipse 18% 55% at 94% 90%,#fff 60%,transparent 62%);filter:blur(2px);opacity:.95}
+.heart{bottom:-40px;opacity:0;animation:rise linear infinite;text-shadow:0 0 10px rgba(255,255,255,.6)}
+@keyframes rise{0%{transform:translate(0,0) rotate(-8deg);opacity:0}10%{opacity:.85}90%{opacity:.5}100%{transform:translate(34px,-110vh) rotate(10deg);opacity:0}}
+.fly{left:0;display:flex;align-items:center;animation:drift linear infinite;filter:drop-shadow(0 6px 10px rgba(80,40,110,.3))}
+.fly::before{content:"";width:150px;height:4px;margin-right:-6px;border-radius:4px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.85))}
+.fly.b::before{display:none}
+.fly svg{width:110px;height:44px;display:block;animation:bob 3s ease-in-out infinite alternate}
+@keyframes bob{to{transform:translateY(-5px) rotate(-1.5deg)}}
+.rope{width:34px;height:2px;background:#fff;opacity:.9;margin-right:-4px}
+.banner{padding:8px 22px 8px 26px;background:linear-gradient(#fff,#ffeef4);color:#c2447a;font:700 22px 'Dancing Script',cursive;white-space:nowrap;border-radius:4px 4px 4px 4px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,12px 50%);box-shadow:inset 0 -3px 0 #f6c45f;transform-origin:right center;animation:wave 2.4s ease-in-out infinite alternate}
+@keyframes wave{from{transform:skewY(-3deg) scaleX(.98)}to{transform:skewY(3deg) scaleX(1.02)}}
+
+#intro{inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;padding:24px;transition:opacity .8s,visibility .8s}
+#intro h1{font:700 clamp(42px,10vw,80px)/1.02 'Dancing Script',cursive;color:#fff;text-shadow:0 4px 26px rgba(60,30,110,.55)}
+#intro p{color:#fff;opacity:.92;font-size:17px;text-shadow:0 2px 10px rgba(60,30,110,.4)}
+#intro small{color:#fff;opacity:.85;font-size:14px;letter-spacing:.04em}
+.env{position:relative;margin-top:10px;width:210px;height:140px;padding:0;border:0;border-radius:10px;background:linear-gradient(135deg,#fff,#ffe2ec);box-shadow:0 20px 44px rgba(60,20,90,.45);cursor:pointer;perspective:700px;animation:float 3s ease-in-out infinite alternate}
+.env::before{content:"";position:absolute;inset:0;border-radius:10px;background:#ffc4d8;clip-path:polygon(0 100%,50% 46%,100% 100%)}
+.flap{position:absolute;left:0;top:0;width:100%;height:58%;background:linear-gradient(#ffdbe8,#ffb7d0);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .9s ease,opacity .3s .7s;z-index:2}
+.seal{position:absolute;left:50%;top:46%;width:38px;height:38px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff7a9c,#c2284f);color:#fff;display:grid;place-items:center;font-size:19px;box-shadow:0 3px 8px rgba(120,20,50,.45);z-index:3;transition:opacity .4s}
+.env:focus-visible{outline:3px solid #ffe08a;outline-offset:5px}
+.env.opening{animation:none}.env.opening .flap{transform:rotateX(180deg);opacity:0}.env.opening .seal{opacity:0}
+@keyframes float{to{transform:translateY(-10px) rotate(-1.5deg)}}
 body.open #intro{opacity:0;visibility:hidden}
-#letter{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;visibility:hidden;transition:opacity 1s .5s,visibility 0s 1.5s}
-body.open #letter{opacity:1;visibility:visible;transition:opacity 1s .5s}
-.paper{width:min(560px,100%);max-height:86vh;overflow:auto;padding:34px 30px;background:rgba(255,250,246,.93);border-radius:18px;box-shadow:0 20px 60px rgba(60,20,90,.4);color:#4a3350;transform:translateY(30px) scale(.96);transition:transform 1.2s .5s cubic-bezier(.2,.8,.2,1)}
+
+#letter{inset:0;display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top)) 16px max(16px,env(safe-area-inset-bottom));opacity:0;visibility:hidden;transition:opacity 1s .4s,visibility 0s 1.4s}
+body.open #letter{opacity:1;visibility:visible;transition:opacity 1s .4s}
+.paper{position:relative;width:min(580px,100%);max-height:88dvh;overflow:auto;scrollbar-width:thin;padding:36px 34px 30px;background:radial-gradient(circle at 20% 0,#fffdf9,#fff6ef 70%,#fdeee6);border-radius:16px;box-shadow:0 24px 70px rgba(50,15,85,.5),inset 0 0 0 1px rgba(255,255,255,.7);color:#4a3350;transform:translateY(40px) rotate(-1.5deg) scale(.94);transition:transform 1.3s .4s cubic-bezier(.2,.8,.2,1)}
+.paper::before{content:"";position:absolute;inset:9px;border:1.5px solid rgba(214,168,72,.55);border-radius:10px;pointer-events:none}
 body.open .paper{transform:none}
-.paper h2{font:700 38px 'Dancing Script',cursive;color:#c2447a;margin-bottom:14px}
-.paper p{font:500 17px/1.75 'Quicksand',sans-serif;margin-bottom:14px;opacity:0}
+.top{text-align:center;color:#e46a9b;letter-spacing:.6em;font-size:15px;margin-bottom:6px}
+.paper h2{font:700 clamp(34px,8vw,44px)/1.1 'Dancing Script',cursive;background:linear-gradient(90deg,#c2447a,#e8736f);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:16px}
+.paper p{font:500 17px/1.78 'Quicksand',sans-serif;margin-bottom:14px;opacity:0}
 body.open .paper p{animation:ap 1s forwards}
-@keyframes ap{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.sign{font:700 30px 'Dancing Script',cursive!important;color:#c2447a;text-align:right}
-@media(prefers-reduced-motion:reduce){*{animation:none!important}.paper p{opacity:1!important}}
+@keyframes ap{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.paper p.sign{font:700 32px 'Dancing Script',cursive;color:#c2447a;text-align:right;margin:6px 6px 0 0}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}.paper p{opacity:1!important}.fly{left:15%}}
 </style>
 </head>
 <body>
 
-<!-- Dibujo del avión (se reutiliza) -->
-<svg width="0" height="0" style="position:absolute">
-  <symbol id="pl" viewBox="0 0 64 24">
-    <path d="M2 12 14 9h26l12-6h4l-8 6 12 1c3 .5 3 3.5 0 4l-12 1 8 6h-4l-12-6H14L2 12Z" fill="#fff"/>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#ffdcea"/></linearGradient>
+  <symbol id="pl" viewBox="0 0 120 48">
+    <path d="M62 19 52 5h12l20 13Z" fill="#f2b4cb"/>
+    <path d="M8 22 2 4h12l16 14Z" fill="#f06fa0"/>
+    <path d="M6 24C6 18 20 15 40 15H92C106 15 116 20 118 24 116 28 106 33 92 33H40C20 33 6 30 6 24Z" fill="url(#pg)"/>
+    <path d="M10 27H112" stroke="#f06fa0" stroke-width="2" stroke-linecap="round"/>
+    <path d="M52 25 38 45h18l26-19Z" fill="#ffd0e1"/>
+    <path d="M98 18h10c4 1 7 3 8 5H98Z" fill="#8ec1f0"/>
+    <g fill="#7fb2e8"><circle cx="60" cy="22" r="2.2"/><circle cx="68" cy="22" r="2.2"/><circle cx="76" cy="22" r="2.2"/><circle cx="84" cy="22" r="2.2"/></g>
   </symbol>
-</svg>
+</defs></svg>
 
 <div id="sky">
-  <div id="sun"></div>
-  <div id="stars"></div>
+  <div id="sun" aria-hidden="true"></div>
+  <div id="rays" aria-hidden="true"></div>
+  <div id="stars" aria-hidden="true"></div>
+  <div class="shoot" aria-hidden="true"></div>
 
-  <!-- Nubes -->
-  <div class="cloud" style="top:18%;animation-duration:70s;animation-delay:-20s"></div>
-  <div class="cloud" style="top:42%;animation-duration:95s;animation-delay:-60s;opacity:.7"></div>
-  <div class="cloud" style="top:64%;animation-duration:80s;animation-delay:-35s;opacity:.8"></div>
-  <div class="cloud" style="top:80%;animation-duration:110s;animation-delay:-10s;opacity:.6"></div>
+  <div class="cloud" style="top:18%;animation-duration:70s;animation-delay:-20s" aria-hidden="true"></div>
+  <div class="cloud" style="top:42%;animation-duration:95s;animation-delay:-60s;opacity:.7;scale:1.3" aria-hidden="true"></div>
+  <div class="cloud" style="top:64%;animation-duration:80s;animation-delay:-35s;opacity:.85" aria-hidden="true"></div>
+  <div class="cloud" style="top:80%;animation-duration:110s;animation-delay:-10s;opacity:.6;scale:.8" aria-hidden="true"></div>
 
-  <!-- Aviones (el primero lleva la pancarta) -->
-  <div class="fly" style="top:14%;animation-duration:26s;animation-delay:-4s"><span class="banner">Te amo, Leida Camila</span><svg><use href="#pl"/></svg></div>
-  <div class="fly" style="top:34%;animation-duration:18s;animation-delay:-12s;scale:.7"><svg><use href="#pl"/></svg></div>
-  <div class="fly" style="top:56%;animation-duration:32s;animation-delay:-20s;scale:.5"><svg><use href="#pl"/></svg></div>
-  <div class="fly" style="top:72%;animation-duration:22s;animation-delay:-2s;scale:.85"><svg><use href="#pl"/></svg></div>
+  <div id="hearts" aria-hidden="true"></div>
 
-  <!-- Pantalla inicial -->
+  <div class="fly b" style="top:13%;animation-duration:28s;animation-delay:-6s" aria-hidden="true"><span class="banner">Te amo, Leida Camila</span><span class="rope"></span><svg><use href="#pl"/></svg></div>
+  <div class="fly" style="top:33%;animation-duration:19s;animation-delay:-12s;scale:.7" aria-hidden="true"><svg><use href="#pl"/></svg></div>
+  <div class="fly" style="top:55%;animation-duration:33s;animation-delay:-20s;scale:.5" aria-hidden="true"><svg><use href="#pl"/></svg></div>
+  <div class="fly" style="top:71%;animation-duration:23s;animation-delay:-2s;scale:.85" aria-hidden="true"><svg><use href="#pl"/></svg></div>
+
+  <div id="bank" aria-hidden="true"></div>
+
   <div id="intro">
     <h1>Una carta<br>para ti</h1>
     <p>Hice volar algo especial hasta tu cielo</p>
-    <button id="go">Abrir carta ✉️</button>
+    <button class="env" id="env" aria-label="Abrir la carta"><span class="flap"></span><span class="seal">♥</span></button>
+    <small>Toca el sobre para abrirlo ✉️</small>
   </div>
 
-  <!-- La carta (cambia el texto por el tuyo) -->
   <div id="letter">
     <div class="paper" id="paper">
+      <div class="top" aria-hidden="true">♥ ✈ ♥</div>
       <h2>Mi Leida Camila,</h2>
       <p>Hoy quise escribirte desde las nubes, porque así me haces sentir: como si flotara en un cielo bonito donde todo está bien.</p>
       <p>Llevamos 10 meses juntos y cada día contigo ha sido mi parte favorita del viaje. Gracias por tu sonrisa, tu paciencia y por hacerme querer ser mejor persona.</p>
@@ -88,22 +119,39 @@ body.open .paper p{animation:ap 1s forwards}
 </div>
 
 <script>
-// Estrellas
+var rnd = function (a, b) { return a + Math.random() * (b - a); };
 var st = document.getElementById('stars');
-for (var i = 0; i < 45; i++) {
+for (var i = 0; i < 55; i++) {
   var s = document.createElement('i');
   s.className = 'star';
-  s.style.left = Math.random() * 100 + '%';
-  s.style.top = Math.random() * 38 + '%';
-  s.style.animationDelay = (Math.random() * 3) + 's';
+  s.style.left = rnd(0, 100) + '%';
+  s.style.top = rnd(0, 40) + '%';
+  s.style.animationDelay = rnd(0, 3) + 's';
+  if (i % 9 === 0) { s.style.width = s.style.height = '5px'; }
   st.appendChild(s);
 }
-// Abrir la carta
-document.getElementById('go').onclick = function () {
-  document.body.classList.add('open');
-  document.querySelectorAll('.paper p').forEach(function (p, i) {
-    p.style.animationDelay = (1.4 + i * 1.1) + 's';
-  });
+var hs = document.getElementById('hearts'), cols = ['#fff', '#ffd1e1', '#ff8fb3', '#ffe08a'];
+for (var j = 0; j < 16; j++) {
+  var h = document.createElement('span');
+  h.className = 'heart';
+  h.textContent = '♥';
+  h.style.left = rnd(2, 96) + '%';
+  h.style.fontSize = rnd(11, 28) + 'px';
+  h.style.color = cols[j % cols.length];
+  h.style.animationDuration = rnd(10, 19) + 's';
+  h.style.animationDelay = -rnd(0, 18) + 's';
+  hs.appendChild(h);
+}
+document.getElementById('env').onclick = function () {
+  var e = this;
+  if (e.classList.contains('opening')) return;
+  e.classList.add('opening');
+  setTimeout(function () {
+    document.body.classList.add('open');
+    document.querySelectorAll('.paper p').forEach(function (p, k) {
+      p.style.animationDelay = (1.3 + k * 1) + 's';
+    });
+  }, 1000);
 };
 </script>
 </body>
